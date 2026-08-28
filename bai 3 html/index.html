@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Bài 3</title>
+    </head>
+    <body>
+        <!-- Danh sách có thứ tự -->
+         <ol>
+            <li>C#</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+         </ol>
+        <!-- Danh sách không có thứ tự -->
+         <ul>
+            <li>C#</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+         </ul>
+         <form>
+            <div>
+                <b>Họ và tên:</b><br>
+                <!-- nếu input không có type thì sẽ -->
+                <!-- mặc định là text -->
+                <!-- Thuộc tính readonly chỉ sử dụng khi -->
+                <!-- Không muốn người dùng nhập-->
+                <!-- Thông tin vào index-->
+                <input type="text" placeholder="Họ và tên"><br>
+            </div>
+            <div>
+                <b>Mật khẩu</b><br>
+                <input type="password" placeholder="Mật khẩu">
+            </div>
+            <div>
+                <b>Giới thiệu về bản thân</b><br>
+                <textarea>Nhập thông tin...</textarea>
+            </div>
+            <div>
+                <b>Email</b><br>
+                <input type="email" placeholder="Email">           
+            </div>
+            <div>
+                <b>Điện thoại</b><br>
+                <input type="tel"
+                 pattern="([0-9]{1}(-[987]{3})(-[0-9]{3}(-[0-9]{3})))" placeholder="Điện thoại">
+            </div>
+            <div>
+                <b>Giới tính</b><br>
+                <input type="radio" name="gioitinh" value="Nam">Nam<br>
+                <input type="radio" name="gioitinh" value="Nữ">Nữ
+            </div>
+            <div>
+                <b>Sở thích</b><br>
+                <input type="checkbox" name="sothich" value="Thể thao">Thể thao<br>
+                <input type="checkbox" name="sothich" value="Du lịch">Du lịch<br>
+                <input type="checkbox" name="sothich" value="Âm nhạc">Âm nhạc<br>
+            </div>
+            <div>
+                <b>Trình duyệt web ưa thích</b><br>
+                <select name="trinhduyet">
+                    <option value="Chrome">Chrome</option>
+                    <option value="Firefox">Firefox</option>
+                    <option value="Safari">Safari</option>
+                    <option value="Opera">Opera</option>
+                </select>
+            </div>
+            <!-- 0 <input type="range" id="a" value="50">100 -->
+                <div>
+                    <b>Năm sinh</b><br>
+                    <input type="number">
+                </div>
+            <div>
+                <input type="submit">   
+            </div>
+            <div>
+                <input type="reset">
+            </div>
+        </form>
+        <audio controls>
+            <source src="../bài 2 html/anh/ĐẾN ĐÂY BÊN ANH - @Dangrangto   x MAYTRENTROI  (NEW VERSION).mp3" type="audio/mpeg">
+        </audio>
+    </body>
+</html>
