@@ -1,4 +1,14 @@
-h3 {
+h3{
+    color: blue;
+    background-color: brown;
+}
+#tieude-1{
+    background-color: red;
+}
+.tieude-2{
     color: black;
-    background-color: Green;
+}
+div.web4 {
+    color: green;
+    background-color: yellow;
 }
