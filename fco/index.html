@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Desktop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MÀN HÌNH ẢO -->
+    <div class="desktop">
+
+        <!-- Các icon trên desktop -->
+        <div class="desktop-icons">
+
+            <!-- FC ONLINE -->
+            <div class="app" id="fcOnline">
+                <div class="app-icon">⚽</div>
+                <div class="app-name">FC Online</div>
+            </div>
+
+            <!-- MY COMPUTER -->
+            <div class="app">
+                <div class="app-icon">💻</div>
+                <div class="app-name">This PC</div>
+            </div>
+
+            <!-- TRASH -->
+            <div class="app">
+                <div class="app-icon">🗑️</div>
+                <div class="app-name">Recycle Bin</div>
+            </div>
+
+        </div>
+
+
+        <!-- CỬA SỔ FC ONLINE -->
+        <div class="game-window" id="gameWindow">
+
+            <div class="window-header">
+                <span>⚽ FC Online</span>
+
+                <button id="closeGame">✕</button>
+            </div>
+
+            <div class="game-content">
+
+                <div class="messi-text">
+                    MESSI<br>
+                    LÀ GOAT
+                </div>
+
+                <div class="goat">
+                    🐐
+                </div>
+
+                <button id="closeGame2">
+                    Đóng game
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- THANH TASKBAR -->
+        <div class="taskbar">
+
+            <div class="start-button">
+                🪟
+            </div>
+
+            <div class="taskbar-title">
+                Virtual Desktop
+            </div>
+
+            <div class="clock" id="clock">
+                00:00
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
