@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hòm Huyền Thoại Bóng Đá</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #263b65 0%, #0b1020 45%, #05070d 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    width: 100%;
+    background: rgba(5, 8, 18, 0.95);
+    border-bottom: 1px solid #39476b;
+    padding: 15px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffd75a;
+}
+
+.logo span {
+    color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    color: #dce3f5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #ffd75a;
+}
+
+/* ================= MAIN ================= */
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 42px;
+    color: #ffd75a;
+    text-shadow: 0 0 20px rgba(255,215,90,.35);
+}
+
+.title p {
+    color: #aeb9d2;
+}
+
+/* ================= CONTROL ================= */
+
+.controls {
+    background: rgba(18, 25, 46, .95);
+    border: 1px solid #39476b;
+    border-radius: 15px;
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls label {
+    font-weight: bold;
+}
+
+.controls input,
+.controls select {
+    padding: 11px 15px;
+    border-radius: 8px;
+    border: 1px solid #59698f;
+    background: #0d1428;
+    color: white;
+}
+
+.open-btn {
+    border: none;
+    padding: 13px 35px;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ffd75a, #ff9d00);
+    color: #111;
+
+    box-shadow: 0 0 20px rgba(255, 180, 0, .3);
+
+    transition: .2s;
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+}
+
+.open-btn:active {
+    transform: scale(.97);
+}
+
+/* ================= CHEST ================= */
+
+.chest-area {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.chest {
+    width: 220px;
+    height: 160px;
+
+    margin: auto;
+
+    background: linear-gradient(145deg, #a75b16, #532607);
+
+    border: 7px solid #d99a38;
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.6),
+        inset 0 0 30px rgba(0,0,0,.4);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.chest:hover {
+    transform: translateY(-8px);
+}
+
+.chest span {
+    font-size: 65px;
+}
+
+.chest.opening {
+    animation: chestShake .7s infinite;
+}
+
+@keyframes chestShake {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0); }
+}
+
+/* ================= RESULT ================= */
+
+.result {
+    display: none;
+
+    max-width: 450px;
+
+    margin: 30px auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(45, 56, 95, .98),
+            rgba(12, 17, 33, .98)
+        );
+
+    border: 2px solid #ffd75a;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 40px rgba(255,215,90,.25);
+
+    animation: appear .5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.player-image {
+    width: 220px;
+    height: 270px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 3px solid #ffd75a;
+
+    background: #10182c;
+
+    margin-bottom: 15px;
+}
+
+.player-name {
+    font-size: 30px;
+    font-weight: bold;
+
+    color: #ffd75a;
+
+    margin: 5px 0;
+}
+
+.player-info {
+    color: #cbd4e9;
+
+    margin: 8px 0;
+}
+
+.rating {
+    font-size: 48px;
+    font-weight: bold;
+
+    color: #ffd75a;
+
+    text-shadow: 0 0 15px rgba(255,215,90,.5);
+}
+
+.rarity {
+    display: inline-block;
+
+    padding: 7px 16px;
+
+    border-radius: 20px;
+
+    margin-top: 8px;
+
+    font-weight: bold;
+
+    background: #6d4aff;
+}
+
+/* ================= LIST ================= */
+
+.section-title {
+    margin-top: 50px;
+
+    font-size: 25px;
+
+    color: #ffd75a;
+}
+
+.player-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(170px, 1fr));
+
+    gap: 15px;
+}
+
+.player-card {
+    background: rgba(17, 24, 45, .95);
+
+    border: 1px solid #39476b;
+
+    border-radius: 12px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    transition: .2s;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #ffd75a;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.4);
+}
+
+.card-image {
+    width: 100%;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    background: #0c1222;
+}
+
+.card-name {
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+.card-info {
+    color: #9faac2;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    color: #75819c;
+
+    padding: 40px 20px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 700px) {
+
+    .header {
+        padding: 15px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .chest {
+        width: 180px;
+        height: 130px;
+    }
+
+    .player-image {
+        width: 180px;
+        height: 230px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        ⚽ HÒM <span>HUYỀN THOẠI</span>
+    </div>
+
+    <nav class="menu">
+        <a href="#home">Trang chủ</a>
+        <a href="#players">Huyền thoại</a>
+        <a href="#about">Giới thiệu</a>
+    </nav>
+
+</header>
+
+
+<main class="container" id="home">
+
+    <section class="title">
+
+        <h1>🏆 HÒM HUYỀN THOẠI BÓNG ĐÁ</h1>
+
+        <p>
+            Bạn sẽ mở ra huyền thoại nào?
+        </p>
+
+    </section>
+
+
+    <!-- BỘ LỌC -->
+
+    <section class="controls">
+
+        <label for="position">
+            Vị trí:
+        </label>
+
+        <select id="position">
+
+            <option value="ALL">
+                Tất cả
+            </option>
+
+            <option value="GK">
+                GK - Thủ môn
+            </option>
+
+            <option value="DF">
+                DF - Hậu vệ
+            </option>
+
+            <option value="MF">
+                MF - Tiền vệ
+            </option>
+
+            <option value="FW">
+                FW - Tiền đạo
+            </option>
+
+        </select>
+
+
+        <label for="budget">
+            Ngân sách:
+        </label>
+
+        <input
+            id="budget"
+            type="number"
+            value="100"
+            min="1"
+        >
+
+        <span>
+            triệu €
+        </span>
+
+
+        <button
+            class="open-btn"
+            onclick="openChest()"
+        >
+            🎁 MỞ HÒM
+        </button>
+
+    </section>
+
+
+    <!-- HÒM -->
+
+    <section class="chest-area">
+
+        <div
+            class="chest"
+            id="chest"
+            onclick="openChest()"
+        >
+            <span>📦</span>
+        </div>
+
+        <p>
+            Nhấn vào hòm để tìm huyền thoại
+        </p>
+
+    </section>
+
+
+    <!-- KẾT QUẢ -->
+
+    <section
+        class="result"
+        id="result"
+    >
+
+        <img
+            id="resultImage"
+            class="player-image"
+            src=""
+            alt="Cầu thủ"
+        >
+
+        <div
+            class="rating"
+            id="resultRating"
+        >
+        </div>
+
+        <div
+            class="player-name"
+            id="resultName"
+        >
+        </div>
+
+        <div
+            class="player-info"
+            id="resultPosition"
+        >
+        </div>
+
+        <div
+            class="player-info"
+            id="resultCountry"
+        >
+        </div>
+
+        <div
+            class="player-info"
+            id="resultClub"
+        >
+        </div>
+
+        <div
+            class="rarity"
+            id="resultRarity"
+        >
+        </div>
+
+    </section>
+
+
+    <!-- DANH SÁCH -->
+
+    <h2
+        class="section-title"
+        id="players"
+    >
+        🌟 50 HUYỀN THOẠI
+    </h2>
+
+    <div
+        class="player-grid"
+        id="playerGrid"
+    >
+    </div>
+
+</main>
+
+
+<footer id="about">
+
+    ⚽ Hòm Huyền Thoại Bóng Đá
+
+    <br>
+
+    50 cầu thủ huyền thoại trong lịch sử bóng đá
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   50 HUYỀN THOẠI
+===================================================== */
+
+const players = [
+
+{
+    name: "Pelé",
+    country: "🇧🇷 Brazil",
+    position: "FW",
+    club: "Santos / Brazil",
+    rating: 99,
+    rarity: "👑 CỰC PHẨM",
+    value: 500
+},
+
+{
+    name: "Diego Maradona",
+    country: "🇦🇷 Argentina",
+    position: "MF",
+    club: "Napoli / Argentina",
+    rating: 99,
+    rarity: "👑 CỰC PHẨM",
+    value: 490
+},
+
+{
+    name: "Lionel Messi",
+    country: "🇦🇷 Argentina",
+    position: "FW",
+    club: "Barcelona / Argentina",
+    rating: 99,
+    rarity: "👑 CỰC PHẨM",
+    value: 500
+},
+
+{
+    name: "Cristiano Ronaldo",
+    country: "🇵🇹 Portugal",
+    position: "FW",
+    club: "Real Madrid / Portugal",
+    rating: 99,
+    rarity: "👑 CỰC PHẨM",
+    value: 500
+},
+
+{
+    name: "Ronaldo Nazário",
+    country: "🇧🇷 Brazil",
+    position: "FW",
+    club: "Real Madrid / Brazil",
+    rating: 98,
+    rarity: "💎 SIÊU HIẾM",
+    value: 450
+},
+
+{
+    name: "Ronaldinho",
+    country: "🇧🇷 Brazil",
+    position: "FW",
+    club: "Barcelona / Brazil",
+    rating: 98,
+    rarity: "💎 SIÊU HIẾM",
+    value: 440
+},
+
+{
+    name: "Johan Cruyff",
+    country: "🇳🇱 Netherlands",
+    position: "FW",
+    club: "Ajax / Netherlands",
+    rating: 98,
+    rarity: "💎 SIÊU HIẾM",
+    value: 430
+},
+
+{
+    name: "Zinedine Zidane",
+    country: "🇫🇷 France",
+    position: "MF",
+    club: "Real Madrid / France",
+    rating: 98,
+    rarity: "💎 SIÊU HIẾM",
+    value: 430
+},
+
+{
+    name: "Franz Beckenbauer",
+    country: "🇩🇪 Germany",
+    position: "DF",
+    club: "Bayern Munich / Germany",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 400
+},
+
+{
+    name: "Alfredo Di Stéfano",
+    country: "🇦🇷 Argentina",
+    position: "FW",
+    club: "Real Madrid",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 400
+},
+
+{
+    name: "Ferenc Puskás",
+    country: "🇭🇺 Hungary",
+    position: "FW",
+    club: "Real Madrid / Hungary",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 390
+},
+
+{
+    name: "Michel Platini",
+    country: "🇫🇷 France",
+    position: "MF",
+    club: "Juventus / France",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 350
+},
+
+{
+    name: "Marco van Basten",
+    country: "🇳🇱 Netherlands",
+    position: "FW",
+    club: "AC Milan / Netherlands",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 350
+},
+
+{
+    name: "Paolo Maldini",
+    country: "🇮🇹 Italy",
+    position: "DF",
+    club: "AC Milan / Italy",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 390
+},
+
+{
+    name: "Roberto Baggio",
+    country: "🇮🇹 Italy",
+    position: "FW",
+    club: "Juventus / Italy",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 330
+},
+
+{
+    name: "Garrincha",
+    country: "🇧🇷 Brazil",
+    position: "FW",
+    club: "Brazil",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 380
+},
+
+{
+    name: "Eusébio",
+    country: "🇵🇹 Portugal",
+    position: "FW",
+    club: "Benfica / Portugal",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 330
+},
+
+{
+    name: "George Best",
+    country: "🇬🇧 Northern Ireland",
+    position: "FW",
+    club: "Manchester United",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Bobby Charlton",
+    country: "🇬🇧 England",
+    position: "MF",
+    club: "Manchester United / England",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 300
+},
+
+{
+    name: "Lev Yashin",
+    country: "🇷🇺 Soviet Union",
+    position: "GK",
+    club: "Dynamo Moscow",
+    rating: 97,
+    rarity: "🧤 CỰC PHẨM",
+    value: 380
+},
+
+{
+    name: "Xavi",
+    country: "🇪🇸 Spain",
+    position: "MF",
+    club: "Barcelona / Spain",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Andrés Iniesta",
+    country: "🇪🇸 Spain",
+    position: "MF",
+    club: "Barcelona / Spain",
+    rating: 97,
+    rarity: "💎 SIÊU HIẾM",
+    value: 350
+},
+
+{
+    name: "Iker Casillas",
+    country: "🇪🇸 Spain",
+    position: "GK",
+    club: "Real Madrid / Spain",
+    rating: 96,
+    rarity: "🧤 HUYỀN THOẠI",
+    value: 300
+},
+
+{
+    name: "Oliver Kahn",
+    country: "🇩🇪 Germany",
+    position: "GK",
+    club: "Bayern Munich / Germany",
+    rating: 95,
+    rarity: "🧤 HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "Gianluigi Buffon",
+    country: "🇮🇹 Italy",
+    position: "GK",
+    club: "Juventus / Italy",
+    rating: 97,
+    rarity: "🧤 CỰC PHẨM",
+    value: 350
+},
+
+{
+    name: "Cafu",
+    country: "🇧🇷 Brazil",
+    position: "DF",
+    club: "AC Milan / Brazil",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 290
+},
+
+{
+    name: "Roberto Carlos",
+    country: "🇧🇷 Brazil",
+    position: "DF",
+    club: "Real Madrid / Brazil",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 310
+},
+
+{
+    name: "Franco Baresi",
+    country: "🇮🇹 Italy",
+    position: "DF",
+    club: "AC Milan / Italy",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Fabio Cannavaro",
+    country: "🇮🇹 Italy",
+    position: "DF",
+    club: "Italy / Real Madrid",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 290
+},
+
+{
+    name: "Sergio Ramos",
+    country: "🇪🇸 Spain",
+    position: "DF",
+    club: "Real Madrid / Spain",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Carles Puyol",
+    country: "🇪🇸 Spain",
+    position: "DF",
+    club: "Barcelona / Spain",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 260
+},
+
+{
+    name: "Lothar Matthäus",
+    country: "🇩🇪 Germany",
+    position: "MF",
+    club: "Inter Milan / Germany",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 330
+},
+
+{
+    name: "Andrea Pirlo",
+    country: "🇮🇹 Italy",
+    position: "MF",
+    club: "AC Milan / Italy",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "Kaká",
+    country: "🇧🇷 Brazil",
+    position: "MF",
+    club: "AC Milan / Brazil",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 300
+},
+
+{
+    name: "Rivaldo",
+    country: "🇧🇷 Brazil",
+    position: "MF",
+    club: "Barcelona / Brazil",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "Luís Figo",
+    country: "🇵🇹 Portugal",
+    position: "MF",
+    club: "Real Madrid / Portugal",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "David Beckham",
+    country: "🇬🇧 England",
+    position: "MF",
+    club: "Manchester United / England",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 260
+},
+
+{
+    name: "Thierry Henry",
+    country: "🇫🇷 France",
+    position: "FW",
+    club: "Arsenal / France",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 330
+},
+
+{
+    name: "Samuel Eto'o",
+    country: "🇨🇲 Cameroon",
+    position: "FW",
+    club: "Barcelona / Cameroon",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "Didier Drogba",
+    country: "🇨🇮 Ivory Coast",
+    position: "FW",
+    club: "Chelsea / Ivory Coast",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 250
+},
+
+{
+    name: "Wayne Rooney",
+    country: "🇬🇧 England",
+    position: "FW",
+    club: "Manchester United / England",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 250
+},
+
+{
+    name: "Steven Gerrard",
+    country: "🇬🇧 England",
+    position: "MF",
+    club: "Liverpool / England",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 250
+},
+
+{
+    name: "Frank Lampard",
+    country: "🇬🇧 England",
+    position: "MF",
+    club: "Chelsea / England",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 250
+},
+
+{
+    name: "Ruud Gullit",
+    country: "🇳🇱 Netherlands",
+    position: "MF",
+    club: "AC Milan / Netherlands",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Zico",
+    country: "🇧🇷 Brazil",
+    position: "MF",
+    club: "Flamengo / Brazil",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 320
+},
+
+{
+    name: "Socrates",
+    country: "🇧🇷 Brazil",
+    position: "MF",
+    club: "Brazil",
+    rating: 93,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 240
+},
+
+{
+    name: "Gabriel Batistuta",
+    country: "🇦🇷 Argentina",
+    position: "FW",
+    club: "Fiorentina / Argentina",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 270
+},
+
+{
+    name: "Hugo Sánchez",
+    country: "🇲🇽 Mexico",
+    position: "FW",
+    club: "Real Madrid / Mexico",
+    rating: 94,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 240
+},
+
+{
+    name: "Karl-Heinz Rummenigge",
+    country: "🇩🇪 Germany",
+    position: "FW",
+    club: "Bayern Munich / Germany",
+    rating: 95,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 280
+},
+
+{
+    name: "Gerd Müller",
+    country: "🇩🇪 Germany",
+    position: "FW",
+    club: "Bayern Munich / Germany",
+    rating: 96,
+    rarity: "🔥 HUYỀN THOẠI",
+    value: 300
+},
+
+{
+    name: "Raymond Kopa",
+    country: "🇫🇷 France",
+    position: "MF",
+    club: "Real Madrid / France",
+    rating: 93,
+    rarity: "⭐ HUYỀN THOẠI",
+    value: 230
+},
+
+{
+    name: "Josef Bican",
+    country: "🇨🇿 Czechia",
+    position: "FW",
+    club: "Slavia Prague",
+    rating: 95,
+    rarity: "💎 SIÊU HIẾM",
+    value: 310
+}
+
+];
+
+
+/* =====================================================
+   LẤY ẢNH TỪ WIKIMEDIA COMMONS
+===================================================== */
+
+async function getPlayerImage(playerName) {
+
+    try {
+
+        const url =
+        "https://commons.wikimedia.org/w/api.php" +
+        "?action=query" +
+        "&generator=search" +
+        "&gsrsearch=" +
+        encodeURIComponent(playerName + " football") +
+        "&gsrnamespace=6" +
+        "&gsrlimit=1" +
+        "&prop=imageinfo" +
+        "&iiprop=url" +
+        "&iiurlwidth=500" +
+        "&format=json" +
+        "&origin=*";
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        if (
+            data.query &&
+            data.query.pages
+        ) {
+
+            const pages =
+                Object.values(data.query.pages);
+
+            if (
+                pages[0] &&
+                pages[0].imageinfo
+            ) {
+
+                return pages[0]
+                    .imageinfo[0]
+                    .thumburl ||
+                    pages[0]
+                    .imageinfo[0]
+                    .url;
+
+            }
+
+        }
+
+    } catch(error) {
+
+        console.log(
+            "Không tải được ảnh:",
+            playerName
+        );
+
+    }
+
+    return "";
+}
+
+
+/* =====================================================
+   TẠO DANH SÁCH
+===================================================== */
+
+async function renderPlayers() {
+
+    const grid =
+        document.getElementById("playerGrid");
+
+    grid.innerHTML = "";
+
+    for (
+        const player of players
+    ) {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "player-card";
+
+        card.innerHTML = `
+
+            <img
+                class="card-image"
+                id="img-${player.name.replace(/\W/g,'')}"
+                src=""
+                alt="${player.name}"
+            >
+
+            <div class="card-name">
+                ${player.name}
+            </div>
+
+            <div class="card-info">
+                ${player.country}
+            </div>
+
+            <div class="card-info">
+                ${player.position}
+                •
+                ⭐ ${player.rating}
+            </div>
+
+        `;
+
+        grid.appendChild(card);
+
+
+        const image =
+            await getPlayerImage(
+                player.name
+            );
+
+        const img =
+            card.querySelector(
+                ".card-image"
+            );
+
+        if(image) {
+
+            img.src = image;
+
+        } else {
+
+            img.src =
+                "https://via.placeholder.com/500x600/10182c/ffd75a?text=" +
+                encodeURIComponent(
+                    player.name
+                );
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   RANDOM CẦU THỦ
+===================================================== */
+
+async function openChest() {
+
+    const chest =
+        document.getElementById("chest");
+
+    const result =
+        document.getElementById("result");
+
+    const position =
+        document.getElementById("position")
+        .value;
+
+    const budget =
+        Number(
+            document.getElementById("budget")
+            .value
+        );
+
+
+    let available =
+        players.filter(
+            player => {
+
+                const positionOK =
+                    position === "ALL" ||
+                    player.position === position;
+
+                const budgetOK =
+                    player.value <= budget;
+
+                return positionOK &&
+                       budgetOK;
+
+            }
+        );
+
+
+    /*
+       Nếu ngân sách quá thấp,
+       bỏ điều kiện ngân sách
+       để vẫn random được.
+    */
+
+    if(available.length === 0) {
+
+        available =
+            players.filter(
+                player =>
+                    position === "ALL" ||
+                    player.position === position
+            );
+
+    }
+
+
+    if(available.length === 0) {
+
+        alert(
+            "Không có cầu thủ phù hợp!"
+        );
+
+        return;
+
+    }
+
+
+    chest.classList.add(
+        "opening"
+    );
+
+    result.style.display =
+        "none";
+
+
+    await new Promise(
+        resolve =>
+            setTimeout(
+                resolve,
+                1200
+            )
+    );
+
+
+    const player =
+        available[
+            Math.floor(
+                Math.random() *
+                available.length
+            )
+        ];
+
+
+    const image =
+        await getPlayerImage(
+            player.name
+        );
+
+
+    document.getElementById(
+        "resultImage"
+    ).src =
+        image ||
+        "https://via.placeholder.com/500x600/10182c/ffd75a?text=" +
+        encodeURIComponent(
+            player.name
+        );
+
+
+    document.getElementById(
+        "resultRating"
+    ).textContent =
+        player.rating;
+
+
+    document.getElementById(
+        "resultName"
+    ).textContent =
+        player.name;
+
+
+    document.getElementById(
+        "resultPosition"
+    ).textContent =
+        "⚽ Vị trí: " +
+        player.position;
+
+
+    document.getElementById(
+        "resultCountry"
+    ).textContent =
+        player.country;
+
+
+    document.getElementById(
+        "resultClub"
+    ).textContent =
+        "🏟️ " +
+        player.club;
+
+
+    document.getElementById(
+        "resultRarity"
+    ).textContent =
+        player.rarity;
+
+
+    chest.classList.remove(
+        "opening"
+    );
+
+
+    result.style.display =
+        "block";
+
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =====================================================
+   KHỞI ĐỘNG
+===================================================== */
+
+renderPlayers();
+
+</script>
+
+</body>
+</html>
