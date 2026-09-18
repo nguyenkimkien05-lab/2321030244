@@ -1,0 +1,16 @@
+body{
+    background-color: #1c1b20 ;
+    color: white ;
+    margin: 0;
+}
+header{
+    display: flex;
+    padding: 10 20px;
+    list-style: none;
+    background-color: red
+}
+.banner{
+    padding: 50px;
+    background-color: white;
+    align-items: center;
+}
