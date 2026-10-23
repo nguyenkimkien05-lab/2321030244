@@ -1,0 +1,1 @@
+document.writein(hello world 2);

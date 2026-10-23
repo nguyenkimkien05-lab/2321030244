@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .khoi{
+                text-align: center;
+            }
+            img{
+                width: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="khoi">
+            <h1>Chế độ sáng</h1>
+            <img src="mattroi.png" alt="">
+            <div>
+                <button>Đổi chế độ</button>
+            </div>
+        </div>
+        <div>
+            Họ và tên: <input type=""text" id="hoVaTen">
+        </div>
+        <div>
+            <button onclick="xinChao2('Kim Kiên' ,21)">Xin Chào</button>
+        </div>
+        <!--<div>
+            Kết quả: <input type="text" id="ketQua">
+        </div>-->
+
+        <h1>
+            Tính tổng
+        </h1>
+        <div>
+            Số thứ 1: <input type="number" id="soThuNhat">
+        </div>
+        <div>
+            Số thứ 2: <input type="number" id="soThuHai">
+        </div>
+        <div>
+            <button onclick="tinhTong">Tính tổng</button>
+        </div>
+        <div>
+            Kết Quả: <input type="text" id="tong">
+        </div>
+        <script>
+            function doiCheDo(){
+                Document.getElementByIdTagName("body")[0].style = "background-color: black
+                Document.getElementByIdTagName("h1")[0].innerHTML = "Chế độ tối";
+                Document.getElementByIdTagName("h1")[0].style = "color: white";
+                Document.getElementByIdTagName("img")[0].src = "mattrang.png"
+            }
+            else{
+                Document.getElementByIdTagName("body")[0].style = "background-color: white
+                Document.getElementByIdTagName("h1")[0].innerHTML = "Chế độ sáng";
+                Document.getElementByIdTagName("h1")[0].style = "color: black";
+                Document.getElementByIdTagName("img")[0].src = "mattrang.png"
+            }
+            }
+            function tinhTong(){
+                var soThuNhat = document.getElementById("soThuNhat").value;
+            }
+            //Function
+            //Để tạo function dùng cú pháp
+            // 1: hàm không có tham số 
+            // function + têm (){}
+            function xinChao(){
+                var ten = document.getElementById("hoVaTen").value;
+                document.getElementById("ketQua").value = ten
+            }
+
+            //gọi hàm
+            xinChao();
+            //2: hàm có tham số
+            // function + tên(tham số){}
+            //Lưu ý: các tham số ngăn cách nhau = dấu ,)
+            function xinChao2(ten, tuoi){
+                document.write("Xin chào " + ten + " " + tuoi);
+            }
+
+            xinChao2("Kiên","Tuất")
+
+            //Sửa hàm xinChao2 in ra xin chào + tên + tuổi
+
+            //Tạo hàm tính chu vi hình chữ nhật
+            function chuvi(dai, rong){
+                document.writeln("Chu vi hình chữ nhật là " +[(dai + rong)*2])
+            }
+            chuvi(5, 5)
+            var danhSachSinhVien = ["Kiên", "Việt", "Huy", "Trọng", "Nottingham Forest"]
+            //dùng for in ra xin chào từng tên trong mảng
+            for(var i = 0; i < danhSachSinhVien.length; i++){
+                if(danhSachSinhVien[i] != "Việt"){
+                document.writeln("<br>" + "Xin chào bác " + danhSachSinhVien[i])  
+                }
+            }
+
+            //Hàm có 2 tham số
+            //Danh sách sinh viên, Tên sinh viên cần tìm
+            //Đầu ra; Nếu có thì in ra có sinh viên / Nếu k: Không có sinh viên
+
+            function timKienSinhVien(ds, ten) {
+            for (var i = 0; i < ds.length; i++) {
+                if (ds[i] == ten) {
+                    coSinhVien = true;
+                }
+            }
+            if (coSinhVien = true) {
+                document.write("<br> Có sinh viên " + ten + " trong danh sách");
+            }
+            else{
+                document.write("<br> Không có sinh viên" + ten + " trong danh sách");
+            }
+        }
+
+        timKienSinhVien(danhSachSinhVien, "Kiên");
+
+
+        </script>
+    </body>
+</html>
