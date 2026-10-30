@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 10 - JS</title>
+</head>
+<style>
+    main{
+        display: flex;
+    }
+    .trai{
+        width: 75%;
+        /* height: 500px; */
+        /* background-color: blue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .phai{
+        width: 25%;
+        /* height: 500px; */
+        /* background-color: red; */
+        /* text-align: center; */
+        border: 1px solid gray;
+        border-radius: 20px;
+    }
+    .video{
+        width: 93%;
+        height: 450px;
+        /* background-color: black; */
+        border-radius: 20px;
+    }
+    .bolero{
+        width: 95%;
+        height: 80px;
+        margin: 10px auto;
+        /* background-color: antiquewhite; */
+        display: flex;
+        align-items: center;
+    }
+    img{
+        width:30% ;
+        margin-right: 10px;
+       height: 90%;
+    }
+    p{
+        width: 75%;
+    }
+    h1{
+        text-align: center;
+    }
+    .bolero:hover{
+        background-color: gray;
+    }
+</style>
+<body>
+    <main>
+        <div class="trai">
+            <div class="video">
+                <iframe class="video" src="https://www.youtube.com/embed/fDCo3EIzKA4?list=RDOzOHyowIzgg"></iframe>
+                <h1></h1>
+            </div>
+        </div>
+        <div class="phai">
+            <h1>Danh sách phát</h1>
+            <div class="danh-sach">
+                <div onclick="chonBai(1)" class="bolero">
+                    <img class="anh-bai" src="/anh/Tình cha.jpg" alt=" ">
+                    <p> Tình cha</p>
+                </div>
+                <div onclick="chonBai(2)" class="bolero">
+                    <img class="anh-bai" src="/anh/Bài ca kỷ niệm.jpg" alt=" ">
+                    <p> Bài ca kỷ niệm</p>
+                </div>
+                 <div onclick="chonBai(3)" class="bolero">
+                    <img class="anh-bai" src="/anh/Người phu kéo mo cau.jpg" alt=" ">
+                    <p> Người phu kéo mo cau</p>
+                </div>
+                 <div onclick="chonBai(4)" class="bolero">
+                    <img class="anh-bai" src="/anh/Mưa đêm tỉnh nhỏ.jpg" alt=" ">
+                    <p> Mưa đêm tỉnh nhỏ</p>
+                </div>
+                 <div onclick="chonBai(5)" class="bolero">
+                    <img class="anh-bai" src="/anh/Phố vắng em rồi.jpg" alt=" ">
+                    <p> Phố vắng em rồi</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        var danhSachBaiHat = [
+        {
+            id: 1,
+            ten: "Tình cha",
+            duongDanAnh: "Tình cha.jpg",
+            duongDanYoutube: "https://www.youtube.com/embed/fDCo3EIzKA4?list=RDOzOHyowIzgg",
+        },
+        {
+            id: 2,
+            ten: "Bài ca kỷ niệm",
+            duongDanAnh: "Bài ca kỷ niệm.jpg",
+            duongDanYoutube: "https://www.youtube.com/embed/OzOHyowIzgg?list=RDOzOHyowIzgg",
+        },
+        {
+            id: 3,
+            ten: "Người phu kéo mo cau",
+            duongDanAnh: "Người phu kéo mo cau.jpg",
+            duongDanYoutube: "https://www.youtube.com/embed/emH2LgE-4SE?list=RDOzOHyowIzgg",
+        },
+        {
+            id: 4,
+            ten: "Mưa đêm tình nhỏ",
+            duongDanAnh: "Mưa đêm tỉnh nhỏ.jpg",
+            duongDanYoutube: "https://www.youtube.com/embed/CYLY7ZTg0Cs?list=RDOzOHyowIzgg",
+        },
+        {
+            id: 5,
+            ten: "Phố vắng em rồi",
+            duongDanAnh: "Phố vắng em rồi.jpg",
+            duongDanYoutube: "https://www.youtube.com/embed/K5p09EGkQuU?list=RDOzOHyowIzgg",
+        },
+    ];
+        function chonBai(id){
+            for (let i = 0; i < danhSachBaiHat.length; i++){
+                if(danhSachBaiHat[i].id == id){
+                    console.log("đã vào đây");
+                    document.getElementsByClassName("video")[1].src = danhSachBaiHat[i].duongDanYoutube
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- BCKN: <iframe width="982" height="552" src="https://www.youtube.com/embed/OzOHyowIzgg?list=RDOzOHyowIzgg" title="Bài Ca Kỷ Niệm - Thiên Quang ft Phương Anh | MV Official" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    NPKMC: <iframe width="982" height="706" src="https://www.youtube.com/embed/emH2LgE-4SE?list=RDOzOHyowIzgg" title="Người Phu Kéo Mo Cau" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    MDTN: <iframe width="982" height="706" src="https://www.youtube.com/embed/CYLY7ZTg0Cs?list=RDOzOHyowIzgg" title="Mưa Đêm Tỉnh Nhỏ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    PVER: <iframe width="982" height="552" src="https://www.youtube.com/embed/K5p09EGkQuU?list=RDOzOHyowIzgg" title="PHỐ VẮNG EM RỒI - [Liveshow DƯƠNG NGỌC THÁI_MỘT THOÁNG QUÊ HƯƠNG 5]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    TC:  <iframe width="941" height="706" src="https://www.youtube.com/embed/fDCo3EIzKA4?list=RDOzOHyowIzgg" title="TÌNH CHA - NGỌC SƠN | Official Music Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
